@@ -1,0 +1,4 @@
+numpy==1.16.4
+Keras==2.2.4
+tqdm==4.23.2
+pycuber==0.2.2
