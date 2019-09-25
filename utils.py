@@ -101,3 +101,42 @@ def gen_sample_small(n_steps=6):
         cube(s.name)
 
     return sample_X, sample_Y, cubes
+
+
+def gen_sequence(n_steps=6):
+    cube = pc.Cube()
+
+    transformation = [choice(list(action_map_small.keys())) for _ in range(n_steps)]
+
+    my_formula = pc.Formula(transformation)
+
+    cube(my_formula)
+
+    my_formula.reverse()
+
+    cubes = []
+    distance_to_solved = []
+
+    for i, s in enumerate(my_formula):
+        cubes.append(cube.copy())
+        cube(s.name)
+        distance_to_solved.append(n_steps-i)
+
+    return cubes, distance_to_solved
+
+
+def get_all_possible_actions_cube_small(cube):
+
+    flat_cubes = []
+    rewards = []
+
+    for a in action_map_small:
+        cube_copy = cube.copy()
+        cube_copy = cube_copy(a)
+        flat_cubes.append(flatten_1d_b(cube_copy))
+        rewards.append(2*int(perc_solved_cube(cube_copy)>0.99)-1)
+
+    return flat_cubes, rewards
+
+def chunker(seq, size):
+    return (seq[pos:pos + size] for pos in range(0, len(seq), size))
