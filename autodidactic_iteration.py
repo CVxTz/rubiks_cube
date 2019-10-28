@@ -62,7 +62,7 @@ if __name__ == "__main__":
     callbacks_list = [checkpoint, early, reduce_on_plateau]
 
     model = get_model(lr=0.0001)
-    model.load_weights(file_path)
+    #model.load_weights(file_path)
 
     for i in range(N_EPOCH):
         cubes = []
