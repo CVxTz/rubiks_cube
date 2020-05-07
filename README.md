@@ -88,3 +88,6 @@ prior knowledge or feature engineering.
 
 Code to reproduce the results is available at :
 [https://github.com/CVxTz/rubiks_cube](https://github.com/CVxTz/rubiks_cube)
+
+
+[![Run on Repl.it](https://repl.it/badge/github/CVxTz/rubiks_cube)](https://repl.it/github/CVxTz/rubiks_cube)
